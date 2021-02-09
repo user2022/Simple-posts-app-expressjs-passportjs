@@ -1,0 +1,15 @@
+<!--Form for creating posts-->
+<h1>Create Post</h1>
+<%- include('../partials/messages') %>
+<form action="/posts/create" method="post">
+    <div class="form-group">
+        <label for="postTitle">Title</label>
+        <input type="text" class="form-control" id="postTitle" aria-describedby="postHelp" name="title" value="<%= typeof title != 'undefined' ? title : '' %>">
+        <small id="emailHelp" class="form-text text-muted">Enter a title for your post</small>
+    </div>
+    <div class="form-group">
+        <label for="postMsg">Message</label>
+        <textarea class="form-control" id="postMsg" rows="7" name="message"><%= typeof message != 'undefined' ? message : '' %></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,27 @@
+<h1 class="text-center">Posts</h1>
+<%- include('./partials/messages') %>
+<!--If user isn't logged in display a message , otherwise allow them to create a post-->
+<% if (!loggedIn) { %>
+    <p class="text-center">Log in if you wish to submit a post</p>
+<% } else { %>
+    <div class="text-center">
+        <a href="/posts/create" class="btn btn-primary mb-2">Create Post</a>
+    </div>
+<% } %>
+<!--If posts exist... display them-->
+<% if (posts.length > 0) { %>
+    <% for (post of posts) { %>
+        <div class="card text-white bg-info mb-3" style="max-width: 20rem; margin: auto;">
+            <div class="card-header">By <%= post.user %></div>
+            <div class="card-body">
+                <h4 class="card-title"><%= post.title %></h4>
+                <p class="card-text"><%= post.message %></p>
+                <% if (loggedIn && user.username == post.user) { %>
+                    <a href="/posts/<%= post._id %>" class="btn btn-secondary">Edit</a>
+                <% } %>
+            </div>
+        </div>
+    <% } %>
+<% } else { %>
+    <h3>No posts submitted</h3>
+<% } %>

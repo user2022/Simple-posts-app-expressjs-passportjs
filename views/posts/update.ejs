@@ -1,0 +1,18 @@
+<!--Form for updating existing posts, existing values will be sent when rendering page-->
+<h1>Update Post</h1>
+<p>You are editing post with title '<%=post.title%>' by <%=post.user%></p>
+<!--Including all messages from partials-->
+<%- include('../partials/messages') %>
+<!--Sending the postID after posts/ so it knows which post to modify-->
+<form action="/posts/<%=post._id%>" method="post">
+    <div class="form-group">
+        <label for="postTitle">Title</label>
+        <input type="text" class="form-control" id="postTitle" aria-describedby="postHelp" name="title" value="<%=post.title%>">
+        <small id="emailHelp" class="form-text text-muted">Enter a title for your post</small>
+    </div>
+    <div class="form-group">
+        <label for="postMsg">Message</label>
+        <textarea class="form-control" id="postMsg" rows="7" name="message"><%=post.message%></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
