@@ -4,4 +4,7 @@ A basic application built in nodeJS that lets a authenticated user create, delet
 
 Built using:
 
-ExpressJS, MongoDB/Mongoose, EJS for templating, passportjs for authentication 
+- ExpressJS 
+- MongoDB/Mongoose, 
+- EJS for templating, 
+- passportjs for authentication 
